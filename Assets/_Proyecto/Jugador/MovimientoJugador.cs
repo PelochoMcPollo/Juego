@@ -12,9 +12,6 @@ public class MovimientoJugador: MonoBehaviour
     [SerializeField] private float gravedad = 9.81f;
     private float velocidadVertical;
 
-    //Camara 
-    [SerializeField] private Transform camara;
-
     //Controlador 
     private CharacterController characterController;
 
