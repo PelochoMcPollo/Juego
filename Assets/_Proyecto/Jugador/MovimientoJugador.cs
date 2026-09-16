@@ -5,8 +5,8 @@ public class MovimientoJugador: MonoBehaviour
 {
     //Movimiento 
     [SerializeField] private float velocidad = 5f;
-    private Vector3 direccion = Vector3.zero;
-
+    [SerializeField] private float multiplicadorCorrer = 2.0f;
+    [SerializeField] private float multiplicadorSaltar = 1.3f;
     //Salto
     [SerializeField] private float fuerzaSalto = 5f;
     [SerializeField] private float gravedad = 9.81f;
@@ -25,12 +25,14 @@ public class MovimientoJugador: MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         input = Vector3.ClampMagnitude(input, 1f);
-        Vector3 movimiento = transform.TransformDirection(input) * velocidad;
+
+        float velocidadActual = Input.GetKey(KeyCode.LeftShift) ? velocidad * multiplicadorCorrer : velocidad;
+
+        Vector3 movimiento = transform.TransformDirection(input) * velocidadActual;
 
         if(characterController.isGrounded)
         {
@@ -38,7 +40,7 @@ public class MovimientoJugador: MonoBehaviour
 
             if(Input.GetButtonDown("Jump"))
             {
-                velocidadVertical = fuerzaSalto;
+                velocidadVertical = Input.GetKey(KeyCode.LeftShift) ? fuerzaSalto * multiplicadorSaltar : fuerzaSalto;
             }
         }
         else
