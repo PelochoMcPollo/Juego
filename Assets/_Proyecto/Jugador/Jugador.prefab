@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3633873077183116255}
   m_Layer: 0
   m_Name: Jugador
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,8 +73,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoJugador
   velocidad: 5
+  multiplicadorCorrer: 2
+  multiplicadorSaltar: 1.3
+  multiplicadorAgacharse: 0.8
   fuerzaSalto: 5
   gravedad: 9.81
+  capaEntorno:
+    serializedVersion: 2
+    m_Bits: 64
+  agachado: 0
+  levantarse: 0
+  camaraJugador: {fileID: 4404117187698830738}
 --- !u!1 &4279600011886723210
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +238,8 @@ MonoBehaviour:
   sensibilidad: 2
   limiteAnguloSuperior: 80
   limiteAnguloInferior: -80
+  offsetAgachado: 0.5
+  velocidadTransicion: 8
 --- !u!1 &5100266963234834208
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +251,7 @@ GameObject:
   - component: {fileID: 832767727216232642}
   m_Layer: 0
   m_Name: Cuerpo
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +286,7 @@ GameObject:
   - component: {fileID: 5424109392701185919}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
